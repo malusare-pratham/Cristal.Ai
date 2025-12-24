@@ -19,15 +19,14 @@ a{text-decoration:none;color:inherit;}
 /* HEADER */
 header{position:sticky;top:0;background:#040114;z-index:1000;}
 nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
-
 .logo{font-size:1.6rem;font-weight:700;}
 
+/* NAV */
 .nav-list{
   display:flex;
   gap:32px;
   list-style:none;
 }
-
 .nav-list a{font-size:1.1rem;font-weight:500;}
 
 .nav-con a{
@@ -37,14 +36,23 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
   font-size:.95rem;
 }
 
-/* MENU ICONS */
+/* MENU ICON */
 .menu-icons{
   display:none;
   font-size:28px;
   cursor:pointer;
 }
 
-#closebtn{display:none;}
+/* CLOSE ICON */
+#closebtn{
+  position:fixed;
+  top:22px;
+  right:22px;
+  font-size:32px;
+  cursor:pointer;
+  display:none;
+  z-index:2000;
+}
 
 /* HERO */
 .hero{
@@ -63,38 +71,33 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 .hero .info{
   background:rgba(255,255,255,.9);
   color:#040114;
-  padding:22px 30px;
+  padding:22px 26px;
   border-radius:18px;
   text-align:center;
-  max-width:480px;
+  max-width:360px;
 }
 
-.hero h1{font-size:2.1rem;margin-bottom:12px;}
+.hero h1{font-size:2rem;margin-bottom:12px;}
 .hero p{font-size:.95rem;margin-bottom:18px;}
 .hero a{background:#040114;color:#fff;padding:10px 24px;border-radius:25px;}
 
-/* ABOUT */
-.about{padding:60px 0;text-align:center;}
-.about h2{font-size:2rem;margin-bottom:15px;}
+/* SECTIONS */
+.about,.services,.portfolio,.contact{padding:60px 0;text-align:center;}
+h2{font-size:2rem;margin-bottom:30px;}
+
 .about p{color:#ddd;max-width:820px;margin:auto;line-height:1.6;}
 
 /* SERVICES */
-.services{padding:60px 0;}
-.services h2{text-align:center;font-size:2rem;margin-bottom:40px;}
-
 .services-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:28px;
 }
-
 .service-card{
   background:#1a1335;
   padding:22px;
   border-radius:20px;
-  text-align:center;
 }
-
 .service-card img{
   width:100%;
   height:160px;
@@ -104,38 +107,46 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 }
 
 /* PORTFOLIO */
-.portfolio{padding:60px 0;text-align:center;}
-.portfolio h2{font-size:2rem;margin-bottom:40px;}
-
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:28px;
 }
-
 .portfolio-item{
   background:#1a1335;
   border-radius:20px;
   overflow:hidden;
 }
-
 .portfolio-item img{
   width:100%;
   height:180px;
   object-fit:cover;
 }
-
 .portfolio-item h4{padding:15px;}
 
-/* CONTACT */
-.contact{padding:60px 0;text-align:center;}
-.contact a{
+/* CONTACT FORM */
+.contact-form{
+  max-width:420px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+.contact-form input,
+.contact-form textarea{
+  padding:12px 16px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+}
+.contact-form button{
   background:#7a07ed;
-  padding:12px 30px;
+  color:#fff;
+  border:none;
+  padding:12px;
   border-radius:25px;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
+  cursor:pointer;
+  font-size:1rem;
 }
 
 /* FOOTER */
@@ -149,7 +160,6 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-
   .nav-list{
     position:fixed;
     inset:0;
@@ -160,11 +170,10 @@ footer{
     gap:30px;
     transform:translateX(100%);
     transition:.4s ease;
+    z-index:1500;
   }
-
   .nav-list.active{transform:translateX(0);}
-  .nav-list a{font-size:1.4rem;}
-
+  .nav-list a{font-size:1.5rem;}
   .nav-con{display:none;}
   .menu-icons{display:block;}
 }
@@ -183,20 +192,21 @@ footer{
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact"><i class="fa-solid fa-phone"></i> Contact Us</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="nav-con">
-    <a href="#contact"><i class="fa-solid fa-phone"></i> Contact Us</a>
+    <a href="#contact">Contact Us</a>
   </div>
 
-  <!-- MENU ICONS -->
   <div class="menu-icons">
     <i class="fa-solid fa-bars" id="openbtn"></i>
-    <i class="fa-solid fa-xmark" id="closebtn"></i>
   </div>
 </nav>
 </header>
+
+<!-- CLOSE ICON -->
+<i class="fa-solid fa-xmark" id="closebtn"></i>
 
 <section class="hero" id="home">
   <div class="info">
@@ -224,7 +234,7 @@ footer{
     </div>
     <div class="service-card">
       <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
-      <h3>AI Solutions</h3>
+      <h3>Customized Software</h3>
     </div>
   </div>
 </section>
@@ -242,16 +252,19 @@ footer{
     </div>
     <div class="portfolio-item">
       <img src="https://images.unsplash.com/photo-1603575448360-153f093fd0b2">
-      <h4>AI Dashboard</h4>
+      <h4>Software Dashboard</h4>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <h2>Contact Us</h2>
-  <a href="mailto:info@cristal.com">
-    <i class="fa-solid fa-envelope"></i> info@cristal.com
-  </a>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <footer>
@@ -261,27 +274,24 @@ footer{
 </div>
 
 <script>
-const menu=document.getElementById("menu");
-const openBtn=document.getElementById("openbtn");
-const closeBtn=document.getElementById("closebtn");
+const menu = document.getElementById("menu");
+const openBtn = document.getElementById("openbtn");
+const closeBtn = document.getElementById("closebtn");
 
-openBtn.onclick=()=>{
+openBtn.onclick = () => {
   menu.classList.add("active");
-  openBtn.style.display="none";
-  closeBtn.style.display="block";
+  closeBtn.style.display = "block";
 }
 
-closeBtn.onclick=()=>{
+closeBtn.onclick = () => {
   menu.classList.remove("active");
-  closeBtn.style.display="none";
-  openBtn.style.display="block";
+  closeBtn.style.display = "none";
 }
 
 document.querySelectorAll(".nav-list a").forEach(link=>{
   link.onclick=()=>{
     menu.classList.remove("active");
     closeBtn.style.display="none";
-    openBtn.style.display="block";
   }
 });
 </script>
