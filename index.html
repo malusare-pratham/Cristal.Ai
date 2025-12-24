@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristal.Ai - In-House Software Products</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    body { font-family: 'Poppins', sans-serif; background:#040114; color:#fff; }
+
+    a { text-decoration:none; }
+
+    .container { width:90%; max-width:1200px; margin:0 auto; }
+
+    /* Header */
+    header { position: sticky; top:0; background:#040114; z-index:1000; box-shadow:0 4px 6px rgba(0,0,0,0.5); }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:15px 0; }
+    nav .logo { font-size:1.8rem; font-weight:bold; color:#fff; }
+    nav .nav-list { list-style:none; display:flex; gap:25px; }
+    nav .nav-list li a { color:#fff; font-weight:500; font-size:1rem; }
+    nav .nav-con a { color:#fff; background:#7a07ed; padding:10px 18px; border-radius:25px; font-weight:500; }
+    #menubtn, #closebtn { display:none; font-size:28px; color:#fff; cursor:pointer; }
+
+    /* Hero Section */
+    .hero { position: relative; min-height: 450px; background: url('images/hero1.png') center/cover no-repeat; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 30px 0; }
+    .hero .info { background: rgba(245,245,245,0.85); padding:30px; border-radius:30px; max-width:600px; text-align:center; }
+    .hero .info h1 { color:#040114; font-size:2.5rem; margin-bottom:15px; }
+    .hero .info p { color:#040114; font-size:1rem; margin-bottom:15px; }
+    .hero .info a { background:#040114; color:#fff; padding:10px 25px; border-radius:25px; font-weight:500; display:inline-block; }
+
+    /* About Section */
+    .about { text-align:center; padding:50px 20px; }
+    .about h2 { font-size:2rem; margin-bottom:15px; }
+    .about p { font-size:1.1rem; color:#ddd; max-width:800px; margin:0 auto; line-height:1.6; }
+
+    /* Services Section */
+    .services { background-color:#040114; padding:50px 20px; }
+    .services h2 { text-align:center; font-size:2rem; margin-bottom:40px; color:#fff; }
+    .service-slider { display:flex; overflow-x:auto; gap:25px; padding-bottom:10px; scroll-behavior:smooth; }
+    .service-slider::-webkit-scrollbar { height:8px; }
+    .service-slider::-webkit-scrollbar-thumb { background-color:#7a07ed; border-radius:10px; }
+    .service-slider::-webkit-scrollbar-track { background-color:#1a1335; }
+    .service-card { min-width:280px; background:#1a1335; padding:20px; border-radius:20px; flex:0 0 auto; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
+    .service-card h3 { font-size:1.5rem; margin-bottom:15px; color:#fff; }
+    .service-card p { font-size:1rem; margin-bottom:15px; color:#ddd; }
+    .service-card ul { list-style:disc; padding-left:20px; margin-bottom:15px; color:#cfc5ff; }
+    .service-card button { background:#7f2bff; border:none; padding:10px 20px; color:#fff; border-radius:25px; cursor:pointer; font-weight:500; }
+
+    /* Portfolio Section */
+    .portfolio { padding:50px 20px; text-align:center; }
+    .portfolio h2 { font-size:2rem; margin-bottom:40px; }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:25px; }
+    .portfolio-item { border-radius:15px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
+    .portfolio-item img { width:100%; height:200px; object-fit:cover; }
+    .portfolio-item h4 { margin:10px 0; color:#fff; }
+
+    /* Contact Section */
+    .contact { background:#040114; padding:50px 20px; text-align:center; }
+    .contact h2 { font-size:2rem; margin-bottom:30px; }
+    .contact a { color:#fff; background:#7a07ed; padding:12px 25px; border-radius:25px; font-weight:500; }
+
+    /* Footer */
+    footer { text-align:center; padding:20px; color:#aaa; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .nav-list { display:none; flex-direction:column; position:absolute; top:65px; left:0; width:60%; background:#040114; padding:10px 0; }
+      #menubtn { display:block; }
+      #closebtn { display:none; }
+      .service-slider { overflow-x: auto; }
+    }
+    @media (max-width:480px) {
+      .hero .info { width:90%; padding:20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <nav>
+        <h1 class="logo">Cristal.Ai</h1>
+        <ul class="nav-list" id="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-con">
+          <a href="#contact">Contact Us <i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+        <i class="fa-solid fa-bars-staggered" id="menubtn" onclick="showmenu()"></i>
+        <i class="fa-solid fa-xmark" id="closebtn" onclick="closemenu()"></i>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero" id="home">
+      <div class="info">
+        <h1>In-House Software Products, That Solve Real Problems</h1>
+        <p>Our in-house tech products optimize workflows, enhance customer experiences, and drive business growth, all engineered by our expert rural developers.</p>
+        <a href="#services">Learn More</a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <h2>About Us</h2>
+      <p>We build smart, reliable, and user-friendly software solutions, powered by skilled rural developers. Our mission is to help businesses grow faster using technology.</p>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <div class="service-slider">
+        <div class="service-card">
+          <h3>Web Development</h3>
+          <p>We craft high-performance, responsive websites to captivate users and drive conversions.</p>
+          <ul>
+            <li>Responsive & Scalable Designs</li>
+            <li>Optimized for SEO & Speed</li>
+            <li>Tailored to Your Business Needs</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+        <div class="service-card">
+          <h3>Mobile App Development</h3>
+          <p>Creating feature-rich apps that run smoothly on both iOS and Android platforms.</p>
+          <ul>
+            <li>Cross-platform Development</li>
+            <li>Intuitive UI/UX Design</li>
+            <li>Fast & Reliable Performance</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+        <div class="service-card">
+          <h3>AI Solutions</h3>
+          <p>Implement AI to automate workflows, analyze data, and improve business efficiency.</p>
+          <ul>
+            <li>AI Chatbots & Assistants</li>
+            <li>Data Analytics</li>
+            <li>Predictive Modeling</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+        <div class="service-card">
+          <h3>Cloud Solutions</h3>
+          <p>Deploy secure, scalable cloud infrastructure for your business operations.</p>
+          <ul>
+            <li>Cloud Hosting</li>
+            <li>Serverless Architecture</li>
+            <li>Secure Data Storage</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+      <h2>Our Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="images/portfolio1.jpg" alt="Project 1">
+          <h4>Project One</h4>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/portfolio2.jpg" alt="Project 2">
+          <h4>Project Two</h4>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/portfolio3.jpg" alt="Project 3">
+          <h4>Project Three</h4>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/portfolio4.jpg" alt="Project 4">
+          <h4>Project Four</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <a href="mailto:info@cristalai.com">Email Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Cristal.Ai. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menubtn');
+    const closeBtn = document.getElementById('closebtn');
+    const menu = document.getElementById('menu');
+
+    function showmenu() {
+      menu.style.display = 'flex';
+      closeBtn.style.display = 'block';
+      menuBtn.style.display = 'none';
+    }
+
+    function closemenu() {
+      menu.style.display = 'none';
+      closeBtn.style.display = 'none';
+      menuBtn.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
