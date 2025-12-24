@@ -1,265 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Devotra Infotech</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristal</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-body {
-  background: #040114;
-  color: #fff;
+body{
+  background:#040114;
+  color:#fff;
 }
 
-/* NAVBAR */
-header {
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #040114;
+a{text-decoration:none;color:inherit;}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
 }
 
-header h1 {
-  font-size: 1.4rem;
-  color: #9b5cff;
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:#040114;
+  z-index:1000;
 }
 
-nav a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-size: 0.95rem;
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 0;
+}
+
+.logo{
+  font-size:1.6rem;
+  font-weight:700;
+}
+
+.nav-list{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+.nav-list a{
+  font-size:1rem;
+}
+
+.nav-con a{
+  background:#7a07ed;
+  padding:10px 20px;
+  border-radius:25px;
+  font-size:0.95rem;
+}
+
+#menubtn,#closebtn{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
 }
 
 /* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
+.hero{
+  margin:30px 0;
+  min-height:450px;
+  background:
+    linear-gradient(rgba(4,1,20,.65),rgba(4,1,20,.65)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+  background-size:cover;
+  background-position:center;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.hero h2 {
-  font-size: 2.4rem;
-  margin-bottom: 15px;
+.hero .info{
+  background:rgba(255,255,255,0.92);
+  color:#040114;
+  padding:35px;
+  border-radius:25px;
+  text-align:center;
+  max-width:600px;
 }
 
-.hero p {
-  color: #cfc5ff;
-  max-width: 600px;
-  margin: auto;
+.hero h1{
+  font-size:2.4rem;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:1rem;
+  margin-bottom:20px;
+}
+
+.hero a{
+  background:#040114;
+  color:#fff;
+  padding:10px 25px;
+  border-radius:25px;
+  display:inline-block;
+}
+
+/* ABOUT */
+.about{
+  padding:50px 0;
+  text-align:center;
+}
+
+.about h2{
+  font-size:2rem;
+  margin-bottom:15px;
+}
+
+.about p{
+  color:#ddd;
+  max-width:800px;
+  margin:auto;
+  line-height:1.6;
 }
 
 /* SERVICES */
-.services {
-  padding: 60px 20px;
+.services{
+  padding:50px 0;
 }
 
-.services h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
+.services h2{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:40px;
 }
 
-/* SLIDER */
-.service-slider-wrapper {
-  display: flex;
-  justify-content: center;
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
-.service-slider {
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  padding: 10px 0 20px;
-  scroll-behavior: smooth;
-  max-width: 1100px;
+.service-card{
+  background:#1a1335;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
 }
 
-.service-slider::-webkit-scrollbar {
-  height: 8px;
+.service-card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:15px;
 }
 
-.service-slider::-webkit-scrollbar-thumb {
-  background: #7a07ed;
-  border-radius: 10px;
+.service-card h3{
+  margin-bottom:10px;
 }
 
-.service-card {
-  min-width: 280px;
-  background: #1a1335;
-  border-radius: 20px;
-  padding: 20px;
-  flex-shrink: 0;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.service-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-.service-card h3 {
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-
-.service-card p {
-  font-size: 0.95rem;
-  color: #ddd;
-  margin-bottom: 15px;
-}
-
-.service-card button {
-  background: #7f2bff;
-  border: none;
-  padding: 10px 22px;
-  color: white;
-  border-radius: 25px;
-  cursor: pointer;
+.service-card p{
+  font-size:0.95rem;
+  color:#ddd;
 }
 
 /* PORTFOLIO */
-.portfolio {
-  padding: 60px 20px;
-  background: #0b0620;
+.portfolio{
+  padding:50px 0;
+  text-align:center;
 }
 
-.portfolio h2 {
-  text-align: center;
-  margin-bottom: 40px;
+.portfolio h2{
+  font-size:2rem;
+  margin-bottom:40px;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 25px;
-  max-width: 1100px;
-  margin: auto;
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
-.portfolio-item {
-  background: #1a1335;
-  border-radius: 15px;
-  overflow: hidden;
+.portfolio-item{
+  background:#1a1335;
+  border-radius:15px;
+  overflow:hidden;
 }
 
-.portfolio-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.portfolio-item img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
 }
 
-.portfolio-item p {
-  padding: 15px;
-  text-align: center;
+.portfolio-item h4{
+  padding:15px 0;
 }
 
-/* RESPONSIVE FIX */
-@media (max-width: 768px) {
-  nav {
-    display: none;
+/* CONTACT */
+.contact{
+  padding:50px 0;
+  text-align:center;
+}
+
+.contact a{
+  background:#7a07ed;
+  padding:12px 30px;
+  border-radius:25px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .logo{
+    font-size:1.3rem;
   }
 
-  .service-slider-wrapper {
-    justify-content: center;
+  .nav-con a{
+    padding:8px 15px;
+    font-size:0.85rem;
   }
 
-  .service-slider {
-    padding-left: 10px;
-    padding-right: 10px;
+  .nav-list{
+    display:none;
+    flex-direction:column;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:80%;
+    background:#040114;
+    border-radius:20px;
+    padding:25px 0;
+    text-align:center;
+    gap:20px;
   }
+
+  #menubtn{
+    display:block;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
+<div class="container">
 
 <header>
-  <h1>Devotra Infotech</h1>
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#">Contact</a>
-  </nav>
+<nav>
+  <div class="logo">Cristal</div>
+
+  <ul class="nav-list" id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-con">
+    <a href="#contact">Contact</a>
+  </div>
+
+  <i class="fa-solid fa-bars" id="menubtn" onclick="openMenu()"></i>
+  <i class="fa-solid fa-xmark" id="closebtn" onclick="closeMenu()"></i>
+</nav>
 </header>
 
-<section class="hero">
-  <h2>Building Digital Solutions That Matter</h2>
-  <p>We design, develop, and deliver modern web, mobile, and AI-driven solutions.</p>
+<section class="hero" id="home">
+  <div class="info">
+    <h1>In-House Software Products</h1>
+    <p>We build reliable, scalable software solutions that solve real business problems.</p>
+    <a href="#services">Explore Services</a>
+  </div>
 </section>
 
-<!-- SERVICES -->
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <p>We create smart, user-friendly software products engineered by skilled developers to help businesses grow faster.</p>
+</section>
+
 <section class="services" id="services">
   <h2>Our Services</h2>
 
-  <div class="service-slider-wrapper">
-    <div class="service-slider">
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+      <h3>Web Development</h3>
+      <p>Fast, responsive business websites.</p>
+    </div>
 
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" />
-        <h3>Web Development</h3>
-        <p>Fast, responsive, SEO-friendly websites for your business.</p>
-        <button>Get Started</button>
-      </div>
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1558655146-d09347e92766">
+      <h3>Mobile Apps</h3>
+      <p>Android & iOS applications.</p>
+    </div>
 
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" />
-        <h3>Mobile Apps</h3>
-        <p>Android & iOS apps with smooth performance.</p>
-        <button>Get Started</button>
-      </div>
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+      <h3>AI Solutions</h3>
+      <p>Automation & intelligent systems.</p>
+    </div>
 
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" />
-        <h3>AI Solutions</h3>
-        <p>Automation, chatbots, and smart analytics.</p>
-        <button>Get Started</button>
-      </div>
-
-      <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" />
-        <h3>Cloud Services</h3>
-        <p>Secure and scalable cloud infrastructure.</p>
-        <button>Get Started</button>
-      </div>
-
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+      <h3>Cloud Services</h3>
+      <p>Secure cloud infrastructure.</p>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
   <h2>Our Portfolio</h2>
 
   <div class="portfolio-grid">
     <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
-      <p>Business Website</p>
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+      <h4>Business Website</h4>
     </div>
 
     <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" />
-      <p>Mobile App UI</p>
-    </div>
-
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93" />
-      <p>Admin Dashboard</p>
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+      <h4>Mobile App</h4>
     </div>
   </div>
 </section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <a href="mailto:info@cristal.com">Email Us</a>
+</section>
+
+<footer>
+  © 2025 Cristal. All Rights Reserved.
+</footer>
+
+</div>
+
+<script>
+const menu=document.getElementById("menu");
+const menuBtn=document.getElementById("menubtn");
+const closeBtn=document.getElementById("closebtn");
+
+function openMenu(){
+  menu.style.display="flex";
+  menuBtn.style.display="none";
+  closeBtn.style.display="block";
+}
+
+function closeMenu(){
+  menu.style.display="none";
+  closeBtn.style.display="none";
+  menuBtn.style.display="block";
+}
+</script>
 
 </body>
 </html>
