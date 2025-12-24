@@ -1,220 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cristal.Ai - In-House Software Products</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Devotra Infotech</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+body {
+  background: #040114;
+  color: #fff;
+}
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-    body { font-family: 'Poppins', sans-serif; background:#040114; color:#fff; }
+/* NAVBAR */
+header {
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #040114;
+}
 
-    a { text-decoration:none; }
+header h1 {
+  font-size: 1.4rem;
+  color: #9b5cff;
+}
 
-    .container { width:90%; max-width:1200px; margin:0 auto; }
+nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
 
-    /* Header */
-    header { position: sticky; top:0; background:#040114; z-index:1000; box-shadow:0 4px 6px rgba(0,0,0,0.5); }
-    nav { display:flex; justify-content:space-between; align-items:center; padding:15px 0; }
-    nav .logo { font-size:1.8rem; font-weight:bold; color:#fff; }
-    nav .nav-list { list-style:none; display:flex; gap:25px; }
-    nav .nav-list li a { color:#fff; font-weight:500; font-size:1rem; }
-    nav .nav-con a { color:#fff; background:#7a07ed; padding:10px 18px; border-radius:25px; font-weight:500; }
-    #menubtn, #closebtn { display:none; font-size:28px; color:#fff; cursor:pointer; }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
 
-    /* Hero Section */
-    .hero { position: relative; min-height: 450px; background: url('images/hero1.png') center/cover no-repeat; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 30px 0; }
-    .hero .info { background: rgba(245,245,245,0.85); padding:30px; border-radius:30px; max-width:600px; text-align:center; }
-    .hero .info h1 { color:#040114; font-size:2.5rem; margin-bottom:15px; }
-    .hero .info p { color:#040114; font-size:1rem; margin-bottom:15px; }
-    .hero .info a { background:#040114; color:#fff; padding:10px 25px; border-radius:25px; font-weight:500; display:inline-block; }
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+}
 
-    /* About Section */
-    .about { text-align:center; padding:50px 20px; }
-    .about h2 { font-size:2rem; margin-bottom:15px; }
-    .about p { font-size:1.1rem; color:#ddd; max-width:800px; margin:0 auto; line-height:1.6; }
+.hero p {
+  color: #cfc5ff;
+  max-width: 600px;
+  margin: auto;
+}
 
-    /* Services Section */
-    .services { background-color:#040114; padding:50px 20px; }
-    .services h2 { text-align:center; font-size:2rem; margin-bottom:40px; color:#fff; }
-    .service-slider { display:flex; overflow-x:auto; gap:25px; padding-bottom:10px; scroll-behavior:smooth; }
-    .service-slider::-webkit-scrollbar { height:8px; }
-    .service-slider::-webkit-scrollbar-thumb { background-color:#7a07ed; border-radius:10px; }
-    .service-slider::-webkit-scrollbar-track { background-color:#1a1335; }
-    .service-card { min-width:280px; background:#1a1335; padding:20px; border-radius:20px; flex:0 0 auto; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
-    .service-card h3 { font-size:1.5rem; margin-bottom:15px; color:#fff; }
-    .service-card p { font-size:1rem; margin-bottom:15px; color:#ddd; }
-    .service-card ul { list-style:disc; padding-left:20px; margin-bottom:15px; color:#cfc5ff; }
-    .service-card button { background:#7f2bff; border:none; padding:10px 20px; color:#fff; border-radius:25px; cursor:pointer; font-weight:500; }
+/* SERVICES */
+.services {
+  padding: 60px 20px;
+}
 
-    /* Portfolio Section */
-    .portfolio { padding:50px 20px; text-align:center; }
-    .portfolio h2 { font-size:2rem; margin-bottom:40px; }
-    .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:25px; }
-    .portfolio-item { border-radius:15px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
-    .portfolio-item img { width:100%; height:200px; object-fit:cover; }
-    .portfolio-item h4 { margin:10px 0; color:#fff; }
+.services h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
 
-    /* Contact Section */
-    .contact { background:#040114; padding:50px 20px; text-align:center; }
-    .contact h2 { font-size:2rem; margin-bottom:30px; }
-    .contact a { color:#fff; background:#7a07ed; padding:12px 25px; border-radius:25px; font-weight:500; }
+/* SLIDER */
+.service-slider-wrapper {
+  display: flex;
+  justify-content: center;
+}
 
-    /* Footer */
-    footer { text-align:center; padding:20px; color:#aaa; }
+.service-slider {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding: 10px 0 20px;
+  scroll-behavior: smooth;
+  max-width: 1100px;
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav .nav-list { display:none; flex-direction:column; position:absolute; top:65px; left:0; width:60%; background:#040114; padding:10px 0; }
-      #menubtn { display:block; }
-      #closebtn { display:none; }
-      .service-slider { overflow-x: auto; }
-    }
-    @media (max-width:480px) {
-      .hero .info { width:90%; padding:20px; }
-    }
-  </style>
+.service-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.service-slider::-webkit-scrollbar-thumb {
+  background: #7a07ed;
+  border-radius: 10px;
+}
+
+.service-card {
+  min-width: 280px;
+  background: #1a1335;
+  border-radius: 20px;
+  padding: 20px;
+  flex-shrink: 0;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.service-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.service-card button {
+  background: #7f2bff;
+  border: none;
+  padding: 10px 22px;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* PORTFOLIO */
+.portfolio {
+  padding: 60px 20px;
+  background: #0b0620;
+}
+
+.portfolio h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.portfolio-item {
+  background: #1a1335;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.portfolio-item p {
+  padding: 15px;
+  text-align: center;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .service-slider-wrapper {
+    justify-content: center;
+  }
+
+  .service-slider {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+</style>
 </head>
-<body>
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <nav>
-        <h1 class="logo">Cristal.Ai</h1>
-        <ul class="nav-list" id="menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-con">
-          <a href="#contact">Contact Us <i class="fa-solid fa-arrow-up"></i></a>
-        </div>
-        <i class="fa-solid fa-bars-staggered" id="menubtn" onclick="showmenu()"></i>
-        <i class="fa-solid fa-xmark" id="closebtn" onclick="closemenu()"></i>
-      </nav>
-    </header>
 
-    <!-- Hero -->
-    <div class="hero" id="home">
-      <div class="info">
-        <h1>In-House Software Products, That Solve Real Problems</h1>
-        <p>Our in-house tech products optimize workflows, enhance customer experiences, and drive business growth, all engineered by our expert rural developers.</p>
-        <a href="#services">Learn More</a>
+<body>
+
+<header>
+  <h1>Devotra Infotech</h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Building Digital Solutions That Matter</h2>
+  <p>We design, develop, and deliver modern web, mobile, and AI-driven solutions.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <h2>Our Services</h2>
+
+  <div class="service-slider-wrapper">
+    <div class="service-slider">
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" />
+        <h3>Web Development</h3>
+        <p>Fast, responsive, SEO-friendly websites for your business.</p>
+        <button>Get Started</button>
       </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" />
+        <h3>Mobile Apps</h3>
+        <p>Android & iOS apps with smooth performance.</p>
+        <button>Get Started</button>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" />
+        <h3>AI Solutions</h3>
+        <p>Automation, chatbots, and smart analytics.</p>
+        <button>Get Started</button>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" />
+        <h3>Cloud Services</h3>
+        <p>Secure and scalable cloud infrastructure.</p>
+        <button>Get Started</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <h2>Our Portfolio</h2>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
+      <p>Business Website</p>
     </div>
 
-    <!-- About -->
-    <section class="about" id="about">
-      <h2>About Us</h2>
-      <p>We build smart, reliable, and user-friendly software solutions, powered by skilled rural developers. Our mission is to help businesses grow faster using technology.</p>
-    </section>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" />
+      <p>Mobile App UI</p>
+    </div>
 
-    <!-- Services -->
-    <section class="services" id="services">
-      <h2>Our Services</h2>
-      <div class="service-slider">
-        <div class="service-card">
-          <h3>Web Development</h3>
-          <p>We craft high-performance, responsive websites to captivate users and drive conversions.</p>
-          <ul>
-            <li>Responsive & Scalable Designs</li>
-            <li>Optimized for SEO & Speed</li>
-            <li>Tailored to Your Business Needs</li>
-          </ul>
-          <button>Get Started</button>
-        </div>
-        <div class="service-card">
-          <h3>Mobile App Development</h3>
-          <p>Creating feature-rich apps that run smoothly on both iOS and Android platforms.</p>
-          <ul>
-            <li>Cross-platform Development</li>
-            <li>Intuitive UI/UX Design</li>
-            <li>Fast & Reliable Performance</li>
-          </ul>
-          <button>Get Started</button>
-        </div>
-        <div class="service-card">
-          <h3>AI Solutions</h3>
-          <p>Implement AI to automate workflows, analyze data, and improve business efficiency.</p>
-          <ul>
-            <li>AI Chatbots & Assistants</li>
-            <li>Data Analytics</li>
-            <li>Predictive Modeling</li>
-          </ul>
-          <button>Get Started</button>
-        </div>
-        <div class="service-card">
-          <h3>Cloud Solutions</h3>
-          <p>Deploy secure, scalable cloud infrastructure for your business operations.</p>
-          <ul>
-            <li>Cloud Hosting</li>
-            <li>Serverless Architecture</li>
-            <li>Secure Data Storage</li>
-          </ul>
-          <button>Get Started</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section class="portfolio" id="portfolio">
-      <h2>Our Portfolio</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <img src="images/portfolio1.jpg" alt="Project 1">
-          <h4>Project One</h4>
-        </div>
-        <div class="portfolio-item">
-          <img src="images/portfolio2.jpg" alt="Project 2">
-          <h4>Project Two</h4>
-        </div>
-        <div class="portfolio-item">
-          <img src="images/portfolio3.jpg" alt="Project 3">
-          <h4>Project Three</h4>
-        </div>
-        <div class="portfolio-item">
-          <img src="images/portfolio4.jpg" alt="Project 4">
-          <h4>Project Four</h4>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-      <h2>Contact Us</h2>
-      <a href="mailto:info@cristalai.com">Email Us</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      &copy; 2025 Cristal.Ai. All Rights Reserved.
-    </footer>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93" />
+      <p>Admin Dashboard</p>
+    </div>
   </div>
+</section>
 
-  <script>
-    const menuBtn = document.getElementById('menubtn');
-    const closeBtn = document.getElementById('closebtn');
-    const menu = document.getElementById('menu');
-
-    function showmenu() {
-      menu.style.display = 'flex';
-      closeBtn.style.display = 'block';
-      menuBtn.style.display = 'none';
-    }
-
-    function closemenu() {
-      menu.style.display = 'none';
-      closeBtn.style.display = 'none';
-      menuBtn.style.display = 'block';
-    }
-  </script>
 </body>
 </html>
